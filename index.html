@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Worker Example</title>
+</head>
+<body>
+
+<iframe
+    sandbox="allow-scripts allow-same-origin"
+    src="iframe-content.html"
+></iframe>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+            console.log('Service Worker register success，scope:', registration.scope);
+        }).catch(function(error) {
+            console.log('Service Worker register error:', error);
+        });
+    }
+</script>
+
+</body>
+</html>
